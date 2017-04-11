@@ -12,13 +12,6 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
     </dependencies>
     <build>
         <finalName>com.infoshareacademy.jjdz3-wave-soft-web</finalName>
