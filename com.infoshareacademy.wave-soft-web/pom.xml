@@ -21,7 +21,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>com.infoshareacademy.jjdz3-wave-soft-web</finalName>
+        <finalName>autoparts</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
