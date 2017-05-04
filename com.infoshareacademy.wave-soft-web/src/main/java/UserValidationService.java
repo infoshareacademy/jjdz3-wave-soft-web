@@ -1,6 +1,6 @@
 public class UserValidationService {
-    public boolean isUserValid(String user, String password) {
-        if(user.equals("mateusz@gmail.com") && password.equals("darth"))
+    public boolean isUserValid(String name, String password) {
+        if(name.equals("mateusz@gmail.com") && password.equals("darth"))
             return true;
 
         return false;
