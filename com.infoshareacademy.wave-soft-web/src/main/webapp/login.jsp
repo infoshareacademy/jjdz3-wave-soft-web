@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <jsp:include page="partials/meta.jsp" />
+
     <title>Wave Soft</title>
+
 </head>
 
 <body>
