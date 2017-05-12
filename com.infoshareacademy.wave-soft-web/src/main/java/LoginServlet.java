@@ -5,20 +5,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/login")
+@WebServlet(urlPatterns = "")
 public class LoginServlet extends HttpServlet {
 
-    private UserValidationService service = new UserValidationService();
+    //private UserValidationService service = new UserValidationService();
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
+
         request.getRequestDispatcher("login.jsp").forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-        String name = request.getParameter("name");
+/*        String name = request.getParameter("name");
         String password = request.getParameter("password");
 
         boolean isUserValid = service.isUserValid(name, password);
@@ -30,6 +32,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             request.setAttribute("errorMessage", "Blędny login lub hasło!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+        }*/
+
     }
 }

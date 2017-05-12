@@ -24,6 +24,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
+            <script>
+                function signOut() {
+                    var auth2 = gapi.auth2.getAuthInstance();
+                    auth2.signOut().then(function () {
+                        console.log('User signed out.');
+                        window.location.href='login.jsp';
+                    });
+                }
+                function onLoad() {
+                    gapi.load('auth2', function() {
+                        gapi.auth2.init();
+                    });
+                }
+            </script>
+            <p id="logOutLink"><a href="#" onclick="signOut();" class="btn btn-info" role="button" >Wyloguj się</a></p>
+
+            <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -31,11 +49,12 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Witaj, ${name}</h1>
+        <h1>Witaj</h1>
+
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a
             jumbotron and three supporting pieces of content. Use it as a starting point to create something more
             unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Czytaj dalej &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" >Czytaj dalej &raquo;</a></p>
     </div>
 </div>
 
