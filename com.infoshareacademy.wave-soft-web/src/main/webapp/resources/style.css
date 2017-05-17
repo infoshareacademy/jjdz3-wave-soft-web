@@ -1,12 +1,24 @@
 #footerPara {
-    margin-top: 15px;
+    margin-top: -10px;
 }
 #signIn {
     float: right;
     padding: 7px;
+    border-radius: 10px!important;
 }
 #logOutLink {
     float: right;
     padding: 7px;
     margin: 0!important;
 }
+h1.mainHeader {
+    margin-top: 10px!important;
+}
+.abcRioButtonLightBlue {
+    border-radius: 10px!important;
+}
+span#cog {
+    margin-left: 5px;
+    top: 3px!important;
+}
+
