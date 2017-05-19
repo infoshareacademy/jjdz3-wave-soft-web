@@ -20,19 +20,5 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-/*        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-
-        boolean isUserValid = service.isUserValid(name, password);
-
-        if(isUserValid) {
-            request.setAttribute("name", name);
-            request.setAttribute("password", password);
-            request.getRequestDispatcher("welcome.jsp").forward(request, response);
-        } else {
-            request.setAttribute("errorMessage", "Blędny login lub hasło!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }*/
-
     }
 }

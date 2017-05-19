@@ -5,7 +5,11 @@
 <head>
     <jsp:include page="partials/meta.jsp" />
 
+
     <title>Wave Soft</title>
+<%--    <link rel="shortcut icon" href="/../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/../favicon.ico" type="image/x-icon">--%>
+
 
 </head>
 
@@ -31,9 +35,6 @@
                     function onSignIn(googleUser) {
                         window.location.href='welcome.jsp';
 
-                        var profile = googleUser.getBasicProfile();
-                        var name=profile.getName();
-                        var email=profile.getEmail();
 
                     }
                 </script>
