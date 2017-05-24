@@ -3,14 +3,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="617676105500-tfrcgit4oemcii4jbctllgr77b1mu0t6.apps.googleusercontent.com">
-
-
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
 <%--Icon made by [http://www.vectorsmarket.com] from www.flaticon.com--%>
 

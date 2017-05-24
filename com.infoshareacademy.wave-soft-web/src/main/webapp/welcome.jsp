@@ -6,7 +6,10 @@
     <jsp:include page="partials/meta.jsp" />
 
     <title>Wave Soft</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="617676105500-tfrcgit4oemcii4jbctllgr77b1mu0t6.apps.googleusercontent.com">
 </head>
+
 
 <body>
 
@@ -20,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Wave Autoparts<span class="glyphicon glyphicon-cog" id="cog" aria-hidden="true"></span></a>
+            <a class="navbar-brand" id="navbar-brandID" href="#">Wave Autoparts<span class="glyphicon glyphicon-cog" id="cog" aria-hidden="true"></span></a>
             <!--glyphicon from http://glyphicons.com-->
 
         </div>
@@ -28,20 +31,14 @@
 
             <script>
                 function signOut() {
-                    var auth2 = gapi.auth2.getAuthInstance();
-                    auth2.signOut().then(function () {
-                        window.location.href='login.jsp';
-                    });
+                    window.location.href='login.jsp';
                 }
-                function onLoad() {
-                    gapi.load('auth2', function() {
-                        gapi.auth2.init();
-                    });
-                }
-            </script>
-            <p id="logOutLink"><a href="#" onclick="signOut();" class="btn btn-info" role="button" >Wyloguj się</a></p>
 
-            <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+            </script>
+
+            <p id="logOutLink"><a href="#" class="btn btn-info" role="button" onclick="signOut()">Wyloguj się</a></p>
+
+
 
         </div><!--/.navbar-collapse -->
     </div>

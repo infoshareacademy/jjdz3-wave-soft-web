@@ -1,11 +1,52 @@
+#googleButton {
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 150px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+}
+#googleButton:hover {
+    cursor: pointer;
+}
+.googleLabel {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    color: #fff;
+}
+.googleIcon {
+    background: url('../images/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+.googleText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}
+#gSignInWrapper {
+    float: right;
+    padding: 3px;
+   /* border-radius: 10px!important;*/
+}
 #footerPara {
     margin-top: -10px;
 }
-#signIn {
-    float: right;
-    padding: 7px;
-    border-radius: 10px!important;
+
+#navbar-brandID {
+    font-size: 20px!important;
+    padding: 12px 15px!important;
 }
+
 #logOutLink {
     float: right;
     padding: 7px;
@@ -63,4 +104,6 @@ a.navbar-brand:hover #cog  {
         transform:rotate(360deg);
     }
 }
+
+
 

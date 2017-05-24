@@ -2,14 +2,11 @@
 <html land="pl">
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="validator.UserValidationService"%>
 <head>
     <jsp:include page="partials/meta.jsp" />
 
-
     <title>Wave Soft</title>
-<%--    <link rel="shortcut icon" href="/../favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/../favicon.ico" type="image/x-icon">--%>
-
 
 </head>
 
@@ -26,24 +23,62 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Wave Autoparts<span class="glyphicon glyphicon-cog" id="cog" aria-hidden="true"></span></a>
+                <a class="navbar-brand" id="navbar-brandID" href="#">Wave Autoparts<span class="glyphicon glyphicon-cog" id="cog" aria-hidden="true"></span></a>
                 <!--glyphicon from http://glyphicons.com-->
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
-                <script type="text/javascript">
-                    function onSignIn(googleUser) {
-                        window.location.href='welcome.jsp';
+            < id="navbar" class="navbar-collapse collapse">
+                <div id="gSignInWrapper">
+                    <span class="googleLabel">Zaloguj się przez:</span>
 
+                    <%
+                        /*
+                         * The GoogleAuthHelper handles all the heavy lifting, and contains all "secrets"
+                         * required for constructing a google login url.
+                         */
+                        final UserValidationService helper = new UserValidationService();
 
-                    }
-                </script>
+                        if (request.getParameter("code") == null
+                                || request.getParameter("state") == null) {
 
-navbar-collapse -->
+				/*
+				 * initial visit to the page
+				 */
+                            out.println("<a href='" + helper.buildLoginUrl()
+                                    + "'>              <div id=\"googleButton\">\n" +
+                                    "                        <span class=\"googleIcon\"></span>\n" +
+                                    "                        <span class=\"googleText\">Google</span>\n" +
+                                    "                    </div></a>");
+				/*
+				 * set the secure state token in session to be able to track what we sent to google
+				 */
+                            session.setAttribute("state", helper.getStateToken());
+
+                        } else if (request.getParameter("code") != null && request.getParameter("state") != null
+                                && request.getParameter("state").equals(session.getAttribute("state"))) {
+
+                            session.removeAttribute("state");
+
+                            out.println("<pre>");
+				/*
+				 * Executes after google redirects to the callback url.
+				 * Please note that the state request parameter is for convenience to differentiate
+				 * between authentication methods (ex. facebook oauth, google oauth, twitter, in-house).
+				 *
+				 * GoogleAuthHelper()#getUserInfoJson(String) method returns a String containing
+				 * the json representation of the authenticated user's information.
+				 * At this point you should parse and persist the info.
+				 */
+                            out.println(helper.getUserInfoJson(request.getParameter("code")));
+
+                            out.println("</pre>");
+                        }
+                    %>
+
+                </div>
+
              </div>
     </div>
 </nav>
-
 
 <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
     <!-- Carousel indicators -->
