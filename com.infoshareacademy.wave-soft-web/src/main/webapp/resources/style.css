@@ -33,6 +33,7 @@
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
 }
+
 #gSignInWrapper {
     float: right;
     padding: 3px;
@@ -46,7 +47,6 @@
     font-size: 20px!important;
     padding: 12px 15px!important;
 }
-
 #logOutLink {
     float: right;
     padding: 7px;

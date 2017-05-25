@@ -89,7 +89,7 @@
         <p id="demo" class="collapse">Aby skorzystać z Naszego serwisu zaloguj się za pomocą konta Google. Prosty w obsłudze formularz pomoże
             znaleźć na Allegro lub Ebay części których potrzebujesz.</p>
 
-        <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="collapse" data-target="#demo">Czytaj dalej &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="javascript:void(0);" id="more" role="button" data-toggle="collapse" data-target="#demo">Czytaj dalej &raquo;</a></p>
     </div>
 </div>
 
@@ -123,6 +123,7 @@
 
     <jsp:include page="partials/footer.jsp" />
 </div> <!-- /container -->
+<script src="resources/mainjs.js"></script>
 
 </body>
 </html>
