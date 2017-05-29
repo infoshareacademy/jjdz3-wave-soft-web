@@ -5,7 +5,7 @@
     <artifactId>jjdz3-wave-soft-web</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <dependencies>
+    <dependencies   >
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -19,7 +19,12 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</systemPath>
         </dependency>
-
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>jjdz3-wave-soft-web</finalName>
@@ -30,24 +35,76 @@
                     <artifactId>wildfly-maven-plugin</artifactId>
                     <version>1.2.0.Alpha4</version>
                 </plugin>
-
-
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/scripts</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/scripts</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                            <filters>
+                                <filter>
+                                    ${basedir}/src/main/resources/configuration.properties
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.2.0.Alpha4</version>
+                <configuration>
+                    <java-opts>
+                        <java-opt>
+                            -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+                        </java-opt>
+                    </java-opts>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>startApp</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <beforeDeployment>
+                                <scripts>
+                                    <script>target/scripts/setup-datasource.cli</script>
+                                </scripts>
+                            </beforeDeployment>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
-
-
-
         </plugins>
     </build>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+        <mysql.version>6.0.6</mysql.version>
     </properties>
 </project>
