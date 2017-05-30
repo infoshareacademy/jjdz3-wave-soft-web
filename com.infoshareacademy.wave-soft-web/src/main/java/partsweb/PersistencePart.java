@@ -3,6 +3,7 @@ package partsweb;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PersistencePart {
@@ -12,6 +13,9 @@ public class PersistencePart {
     private Long id;
     private String partId;
     private String searchPhrase;
+
+    @ManyToOne
+    private PersistencePartCategory partCategory;
 
     public PersistencePart() {
     }
