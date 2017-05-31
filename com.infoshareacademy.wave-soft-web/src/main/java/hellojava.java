@@ -1,4 +1,9 @@
 import WaveSoftProgram.FindingPart;
+import WaveSoftProgram.parts.PartParser;
+import WaveSoftProgram.parts.PlaceInCar;
+import partsstorage.PartsImport;
+
+import java.util.List;
 
 public class hellojava {
 
@@ -8,4 +13,11 @@ public class hellojava {
         FindingPart part = new FindingPart();
         part.findPartMenu("parts_ebay.json");
     }*/
+
+    public static void main(String[] args) {
+        PartParser partParser = new PartParser("parts_ebay.json");
+
+        PartsImport partsImport = new PartsImport();
+        partsImport.partImport(partParser.getPlaceInCarList());
+    }
 }
