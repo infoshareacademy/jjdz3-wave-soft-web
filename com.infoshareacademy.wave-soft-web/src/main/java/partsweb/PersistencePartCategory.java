@@ -1,10 +1,7 @@
 package partsweb;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +15,9 @@ public class PersistencePartCategory {
 
     @OneToMany(mappedBy = "partCategory")
     private List<PersistencePart> parts = new ArrayList<>();
+
+    @ManyToOne
+    private PersistencePlaceInCar placeInCar;
 
     public PersistencePartCategory() {
     }
