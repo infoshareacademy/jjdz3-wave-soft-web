@@ -5,7 +5,7 @@ import partsstorage.PartsImport;
 
 import java.util.List;
 
-public class hellojava {
+public class Hellojava {
 
     //Below is just for test of feature/JZ3W-26
     //parts_ebay.json should be in src/main/resources
