@@ -1,0 +1,109 @@
+#googleButton {
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 150px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+}
+#googleButton:hover {
+    cursor: pointer;
+}
+.googleLabel {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    color: #fff;
+}
+.googleIcon {
+    background: url('../images/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+.googleText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-size: 14px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}
+
+#gSignInWrapper {
+    float: right;
+    padding: 3px;
+   /* border-radius: 10px!important;*/
+}
+#footerPara {
+    margin-top: -10px;
+}
+
+#navbar-brandID {
+    font-size: 20px!important;
+    padding: 12px 15px!important;
+}
+#logOutLink {
+    float: right;
+    padding: 7px;
+    margin: 0!important;
+}
+h1.mainHeader {
+    margin-top: 10px!important;
+}
+.abcRioButtonLightBlue {
+    border-radius: 10px!important;
+}
+span#cog {
+    margin-left: 5px;
+    top: 3px!important;
+}
+a.navbar-brand:hover #cog  {
+    margin-left: 5px;
+    top: 3px!important;
+    z-index: 1;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+
