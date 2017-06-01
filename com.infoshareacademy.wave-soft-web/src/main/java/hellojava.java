@@ -1,4 +1,6 @@
+/*
 import WaveSoftProgram.FindingPart;
+*/
 
 public class hellojava {
 
