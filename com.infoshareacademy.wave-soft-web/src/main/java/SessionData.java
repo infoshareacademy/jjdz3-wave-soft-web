@@ -2,9 +2,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
-/**
- * Created by arek50 on 2017-05-01.
- */
 @Named
 @SessionScoped
 public class SessionData implements Serializable {
@@ -16,7 +13,6 @@ public class SessionData implements Serializable {
     private boolean logged = false;
     private String partCategory = "";
     private boolean admin = false;
-
 
     public void logUser(String firstname, String lastname, String picture, String email, int role) {
         this.firstname = firstname;
@@ -34,8 +30,7 @@ public class SessionData implements Serializable {
     public boolean isAdmin() {
         return admin;
     }
-
-
+    
     public void logout() {
         firstname = null;
         lastname = null;

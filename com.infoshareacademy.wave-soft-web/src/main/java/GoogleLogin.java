@@ -22,23 +22,19 @@ public class GoogleLogin extends HttpServlet {
     @Inject
     SessionData sessionData;
 
-
     private static final String PROTECTED_RESOURCE_URL = "https://www.googleapis.com/oauth2/v2/userinfo";
 
     public static final String AUTHORIZATION_URL = "https://accounts.google.com/o/oauth2/auth?access_type=" +
             "offline&prompt=consent&response_type=code&client_id=617676105500-tfrcgit4oemcii4jbctllgr77b1mu0t6.apps.googleusercontent.c" +
             "om&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fautoparts%2Fwelcome.jsp&scope=email&state=secret385568";
 
-
     String apiKey = MyConstants.GOOGLE_CLIENT_ID;
     String apiSecret = MyConstants.GOOGLE_CLIENT_SECRET;
     String callbackUrl = MyConstants.GOOGLE_REDIRECT_URL;
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-
 
         OAuth20Service service = new ServiceBuilder()
                 .apiKey(apiKey)
@@ -48,9 +44,7 @@ public class GoogleLogin extends HttpServlet {
                 .callback(callbackUrl)
                 .build(GoogleApi20.instance());
 
-
         resp.sendRedirect(AUTHORIZATION_URL);
-
 
         if (null != req.getParameter("error")) {
             req.setAttribute("error", req.getParameter("error"));
@@ -88,7 +82,6 @@ public class GoogleLogin extends HttpServlet {
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/welcome.jsp");
         dispatcher.forward(req, resp);
-
     }
 
     @Override

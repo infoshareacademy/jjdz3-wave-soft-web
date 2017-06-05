@@ -53,5 +53,6 @@
     <orderEntry type="library" name="Maven: com.github.scribejava:scribejava-apis:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.scribejava:scribejava-core:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.6" level="project" />
   </component>
 </module>

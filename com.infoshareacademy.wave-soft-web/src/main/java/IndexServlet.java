@@ -12,6 +12,5 @@ public class IndexServlet extends HttpServlet {
                          HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("login.jsp").forward(request, response);
-
     }
 }

@@ -15,6 +15,5 @@ public class GoogleLogout extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         sessionData.logout();
         resp.sendRedirect("http://localhost:8080/autoparts");
-
     }
 }
