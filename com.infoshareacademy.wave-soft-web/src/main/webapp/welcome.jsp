@@ -6,8 +6,7 @@
     <jsp:include page="partials/meta.jsp" />
 
     <title>Wave Soft</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="617676105500-tfrcgit4oemcii4jbctllgr77b1mu0t6.apps.googleusercontent.com">
+
 </head>
 
 
@@ -29,16 +28,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
-            <script>
-                function signOut() {
-                    window.location.href='login.jsp';
-                }
-
-            </script>
-
-            <p id="logOutLink"><a href="#" class="btn btn-info" role="button" onclick="signOut()">Wyloguj się</a></p>
-
-
+            <p id="logOutLink"><a href="logout" class="btn btn-info" role="button">Wyloguj się</a></p>
 
         </div><!--/.navbar-collapse -->
     </div>
