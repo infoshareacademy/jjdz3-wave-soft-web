@@ -23,5 +23,6 @@ public class FindPartServlet extends HttpServlet{
         PartsImport partsImport = new PartsImport();
         partsImport.partImport(partParser.getPlaceInCarList());*/
         req.setAttribute("placeInCar", persistencePartStorage.getAllPlaces());
+        req.getRequestDispatcher("findpart.jsp").forward(req, resp);
     }
 }
