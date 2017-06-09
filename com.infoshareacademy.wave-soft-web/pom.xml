@@ -66,7 +66,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <version>5.1.42</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.2.10.Final</version>
         </dependency>
     </dependencies>
     <build>
@@ -81,11 +86,11 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <hybernate.version>5.2.10.Final</hybernate.version>
-        <mysql.version>6.0.6</mysql.version>
     </properties>
 </project>
