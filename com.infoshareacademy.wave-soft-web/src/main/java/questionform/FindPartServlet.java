@@ -18,11 +18,11 @@ public class FindPartServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*PartParser partParser = new PartParser("parts_ebay.json");
+        PartParser partParser = new PartParser("parts_ebay.json");
 
         PartsImport partsImport = new PartsImport();
-        partsImport.partImport(partParser.getPlaceInCarList());*/
-        req.setAttribute("placeInCar", persistencePartStorage.getAllPlaces());
-        req.getRequestDispatcher("findpart.jsp").forward(req, resp);
+        partsImport.partImport(partParser.getPlaceInCarList());
+        /*req.setAttribute("placeInCar", persistencePartStorage.getAllPlaces());
+        req.getRequestDispatcher("findpart.jsp").forward(req, resp);*/
     }
 }
