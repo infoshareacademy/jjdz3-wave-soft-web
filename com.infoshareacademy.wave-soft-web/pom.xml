@@ -7,11 +7,11 @@
     <packaging>war</packaging>
     <dependencies>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.2.10.Final</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>javax</groupId>
@@ -24,7 +24,7 @@
             <artifactId>WaveSoftProgram	</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</systemPath>
+            <systemPath>/usr/lib/jvm/java-8-oracle/lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -106,6 +106,26 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</file>
+                            <groupId>WaveSoftProgram</groupId>
+                            <artifactId>WaveSoftProgram</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                            <packaging>jar</packaging>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
     </build>
     <properties>
