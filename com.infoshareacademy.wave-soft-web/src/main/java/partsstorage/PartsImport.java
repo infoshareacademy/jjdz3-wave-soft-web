@@ -21,7 +21,7 @@ public class PartsImport {
     private EntityManager em;
 
     public PartsImport() {
-        /*EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "default" );
+        /*EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "autoparts" );
         em = entityManagerFactory.createEntityManager();*/
     }
 
