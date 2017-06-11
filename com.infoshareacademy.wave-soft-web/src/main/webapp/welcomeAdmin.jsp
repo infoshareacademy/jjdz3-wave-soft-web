@@ -11,11 +11,11 @@
     </style>
 </head>
 <body>
-Hi ${adminLogin} your password is ${adminPassword}
+<%--Hi ${adminLogin} your password is ${adminPassword}--%>
 
 <table>
 <tbody>
-<tr><th>ID</th><th>What</th><th>HowManyTimes</th></tr>
+<tr><th>What</th><th>HowManyTimes</th></tr>
 <c:forEach items="${requestScope.findPartList}" var="fpl">
     <td><c:out value="${fpl.partName}"></c:out></td></tr>
 </c:forEach>
