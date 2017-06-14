@@ -1,14 +1,16 @@
 package partsstorage;
 
 
-import WaveSoftProgram.parts.PlaceInCar;
+
 import partsweb.PersistencePlaceInCar;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Default
 public class PersistencePartStorage {
 
     @PersistenceContext
@@ -22,6 +24,4 @@ public class PersistencePartStorage {
         return persistencePlaceInCarList;
 
     }
-
-
 }
