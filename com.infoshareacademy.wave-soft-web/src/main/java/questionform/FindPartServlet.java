@@ -5,6 +5,8 @@ import WaveSoftProgram.parts.PartParser;
 import partsstorage.PartsImport;
 import partsstorage.PersistencePartStorage;
 
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,9 @@ import java.io.IOException;
 
 @WebServlet("/findpart")
 public class FindPartServlet extends HttpServlet{
-    private PersistencePartStorage persistencePartStorage = new PersistencePartStorage();
+    @Inject
+    @Default
+    private PersistencePartStorage persistencePartStorage;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
