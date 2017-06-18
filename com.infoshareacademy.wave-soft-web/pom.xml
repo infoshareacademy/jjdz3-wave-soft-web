@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.infoshareacademy</groupId>
-    <artifactId>com.infoshareacademy.jjdz3-wave-soft-web</artifactId>
+    <artifactId>jjdz3-wave-soft-web</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <dependencies>
@@ -16,8 +16,6 @@
             <groupId>WaveSoftProgram</groupId>
             <artifactId>WaveSoftProgram	</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</systemPath>
         </dependency>
 
 
@@ -94,12 +92,94 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/scripts</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/scripts</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                            <filters>
+                                <filter>
+                                    ${basedir}/src/main/resources/configuration.properties
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.2.0.Alpha4</version>
+                <configuration>
+                    <java-opts>
+                        <java-opt>
+                            -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+                        </java-opt>
+                    </java-opts>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>startApp</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <beforeDeployment>
+                                <scripts>
+                                    <script>target/scripts/setup-datasource.cli</script>
+                                </scripts>
+                            </beforeDeployment>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <file>lib/WaveSoftProgram-1.0-SNAPSHOT-jar-with-dependencies.jar</file>
+                            <groupId>WaveSoftProgram</groupId>
+                            <artifactId>WaveSoftProgram</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                            <packaging>jar</packaging>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
-
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <hybernate.version>5.2.10.Final</hybernate.version>
+        <mysql.version>6.0.6</mysql.version>
     </properties>
 </project>
