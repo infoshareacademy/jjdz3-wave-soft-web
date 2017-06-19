@@ -2,6 +2,7 @@ package partsstorage;
 
 
 
+import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
 
 import javax.enterprise.inject.Default;
@@ -22,6 +23,13 @@ public class PersistencePartStorage {
                 .createQuery("select p from PersistencePlaceInCar p", PersistencePlaceInCar.class)
                 .getResultList();
         return persistencePlaceInCarList;
+    }
 
+    @Transactional
+    public List<PersistencePartCategory> chooseCategory(Long id){
+        List<PersistencePartCategory> persistencePartCategoryList = em
+                .createQuery("select p from PersistencePartCategory p where p.placeInCar = :id", PersistencePartCategory.class)
+                .getResultList();
+        return persistencePartCategoryList;
     }
 }
