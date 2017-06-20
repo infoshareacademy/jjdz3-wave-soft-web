@@ -5,11 +5,13 @@ import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
+import com.google.gson.Gson;
 import validator.MyConstants;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @WebServlet(urlPatterns = "/googlelogin")
@@ -80,7 +84,34 @@ public class GoogleLogin extends HttpServlet {
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
+
+            if (response.getCode() != 200) {
+                req.setAttribute("error", "Brak połączenia z api google");
+            } else {
+                String googleJson = response.getBody();
+                Gson gson = new Gson();
+                GoogleUser googleUser = gson.fromJson(googleJson, GoogleUser.class);
+                entityManagerFactory = Persistence.createEntityManagerFactory("autoparts");
+                entityManager = entityManagerFactory.createEntityManager();
+                UsersList member = entityManager.createQuery("SELECT m FROM  UsersList m WHERE m.email = :email ORDER BY m.email", UsersList.class)
+                        .setParameter("email", googleUser.getEmail()).getSingleResult();
+//                if (administratorEmails.isAdministrator(googleUser.getEmail()) == 1) {
+                if (!member.getEmail().isEmpty()) {
+//                    sessionData.logUser(googleUser.getGiven_name(), googleUser.getFamily_name(), googleUser.getPicture(), googleUser.getEmail());
+                    sessionData.logUser(member.getFirstname(), member.getLastname(), googleUser.getPicture(), member.getEmail(), member.getRole());
+                    resp.sendRedirect("/googlelogin");
+                } else {
+                    req.setAttribute("error", "Nie ma takiego użytkownika. Dostęp zabroniony.");
+                }
+            }
         }
+
+        Map<String, String> sessionUser = new HashMap<>();
+        sessionUser.put("given_name", sessionData.getFirstname());
+        sessionUser.put("family_name", sessionData.getLastname());
+        sessionUser.put("picture", sessionData.getPicture());
+        sessionUser.put("email", sessionData.getEmail());
+        req.setAttribute("oauth", sessionUser);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/welcome.jsp");
         dispatcher.forward(req, resp);
@@ -89,6 +120,23 @@ public class GoogleLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        OAuth20Service service = new ServiceBuilder()
+                .apiKey(apiKey)
+                .apiSecret(apiSecret)
+                .scope("profile")
+                .scope("email")
+                .callback(callbackUrl)
+                .build(GoogleApi20.instance());
+
+        if (req.getParameter("login").equals("1")) {
+            final Map<String, String> additionalParams = new HashMap<>();
+            additionalParams.put("access_type", "offline");
+            additionalParams.put("prompt", "consent");
+            resp.sendRedirect(service.getAuthorizationUrl(additionalParams));
+            req.setAttribute("oauth", "wysyłam żądanie do google...");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/welcome.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 }
 
