@@ -100,7 +100,7 @@ public class GoogleLogin extends HttpServlet {
                 UsersList member = entityManager.createQuery("SELECT m FROM  UsersList m WHERE m.email = :email ORDER BY m.email", UsersList.class)
                         .setParameter("email", googleUser.getEmail()).getSingleResult();
 
-                LOGGER.debug("Lista membersów: " + member.getFirstname());
+                LOGGER.debug("Lista użytkowników: " + member.getFirstname());
 
 //                if (administratorEmails.isAdministrator(googleUser.getEmail()) == 1) {
                 if (!member.getEmail().isEmpty()) {
