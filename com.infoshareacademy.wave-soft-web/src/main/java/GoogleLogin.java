@@ -7,6 +7,8 @@ import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 import com.google.gson.Gson;
 import validator.MyConstants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -27,6 +29,8 @@ import java.util.concurrent.ExecutionException;
 public class GoogleLogin extends HttpServlet {
     @Inject
     SessionData sessionData;
+
+    private final Logger LOGGER = LogManager.getLogger(GoogleLogin.class);
 
     private static final String PROTECTED_RESOURCE_URL = "https://www.googleapis.com/oauth2/v2/userinfo";
 
@@ -95,6 +99,9 @@ public class GoogleLogin extends HttpServlet {
                 entityManager = entityManagerFactory.createEntityManager();
                 UsersList member = entityManager.createQuery("SELECT m FROM  UsersList m WHERE m.email = :email ORDER BY m.email", UsersList.class)
                         .setParameter("email", googleUser.getEmail()).getSingleResult();
+
+                LOGGER.debug("Lista membersów: " + member.getFirstname());
+
 //                if (administratorEmails.isAdministrator(googleUser.getEmail()) == 1) {
                 if (!member.getEmail().isEmpty()) {
 //                    sessionData.logUser(googleUser.getGiven_name(), googleUser.getFamily_name(), googleUser.getPicture(), googleUser.getEmail());
