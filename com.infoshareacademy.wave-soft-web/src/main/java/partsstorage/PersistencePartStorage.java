@@ -2,6 +2,7 @@ package partsstorage;
 
 
 
+import partsweb.PersistencePart;
 import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
 
@@ -28,8 +29,18 @@ public class PersistencePartStorage {
     @Transactional
     public List<PersistencePartCategory> chooseCategory(Long id){
         List<PersistencePartCategory> persistencePartCategoryList = em
-                .createQuery("select p from PersistencePartCategory p where p.placeInCar = :id", PersistencePartCategory.class)
+                .createQuery("select p from PersistencePartCategory p left join fetch p.placeInCar t  where t.id =:id", PersistencePartCategory.class)
+                .setParameter("id", id)
                 .getResultList();
         return persistencePartCategoryList;
+    }
+
+    @Transactional
+    public List<PersistencePart> choosePart(Long id){
+        List<PersistencePart> persistencePartList = em
+                .createQuery("select p from PersistencePart p left join fetch p.partCategory t  where t.id =:id", PersistencePart.class)
+                .setParameter("id", id)
+                .getResultList();
+        return persistencePartList;
     }
 }
