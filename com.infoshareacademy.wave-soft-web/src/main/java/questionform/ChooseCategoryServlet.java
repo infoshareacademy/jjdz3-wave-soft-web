@@ -22,8 +22,6 @@ public class ChooseCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.parseLong(req.getParameter("singleplace"));
         req.setAttribute("partCategory", persistencePartStorage.chooseCategory(id));
-        req.getRequestDispatcher("findpart.jsp").forward(req, resp); //TU
-
-
+        req.getRequestDispatcher("choosecategory.jsp").forward(req, resp);
     }
 }
