@@ -5,6 +5,7 @@
 
 </head>
 <body>
+<hr>
 <h2>Wybierz część:</h2>
 <form name="chosenpart" method="post" action="choosepart">
     <select required name="singlecategory">
