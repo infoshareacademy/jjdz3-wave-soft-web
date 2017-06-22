@@ -5,6 +5,7 @@
 
 </head>
 <body>
+<hr>
 <h2>Wybierz miejsce w samochodzie:</h2>
 <form name="chosenplace" method="post" action="choosecategory">
     <select required name="singleplace">
