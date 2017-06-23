@@ -2,6 +2,7 @@
 <html land="pl">
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <head>
     <jsp:include page="partials/meta.jsp" />
 
@@ -101,6 +102,13 @@
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                 porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                 fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Użytkownicy</h2>
+
             <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
         </div>
     </div>
