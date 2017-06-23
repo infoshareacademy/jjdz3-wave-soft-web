@@ -10,6 +10,7 @@ import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Default
@@ -23,6 +24,17 @@ public class PersistencePartStorage {
         List<PersistencePlaceInCar> persistencePlaceInCarList = em
                 .createQuery("select p from PersistencePlaceInCar p", PersistencePlaceInCar.class)
                 .getResultList();
+        return persistencePlaceInCarList;
+    }
+
+    @Transactional
+    public List<PersistencePlaceInCar> choosePlace(Long id){
+        List<PersistencePlaceInCar> persistencePlaceInCarList = new ArrayList<>();
+        PersistencePlaceInCar persistencePlaceInCar = em
+                .createQuery("select p from PersistencePlaceInCar p where p.id =:id", PersistencePlaceInCar.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        persistencePlaceInCarList.add(persistencePlaceInCar);
         return persistencePlaceInCarList;
     }
 
