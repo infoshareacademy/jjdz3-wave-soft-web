@@ -28,9 +28,18 @@ public class FindPartServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String placeInCar = req.getParameter("placeInCar");
+        Long placeId = Long.parseLong(req.getParameter("singleplace"));
+        req.setAttribute("placeInCar", persistencePartStorage.choosePlace(placeId));
+        req.setAttribute("partCategory", persistencePartStorage.chooseCategory(placeId));
+
+
+
+        req.getRequestDispatcher("findpart.jsp").forward(req, resp);
+
+
+        /*String placeInCar = req.getParameter("placeInCar");
         if (placeInCar != null && !placeInCar.isEmpty()){
 
-        }
+        }*/
     }
 }
