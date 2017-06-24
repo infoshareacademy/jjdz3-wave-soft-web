@@ -28,7 +28,7 @@ public class PersistencePartStorage {
     }
 
     @Transactional
-    public List<PersistencePlaceInCar> choosePlace(Long id){
+    public List<PersistencePlaceInCar> chooseOnePlace(Long id){
         List<PersistencePlaceInCar> persistencePlaceInCarList = new ArrayList<>();
         PersistencePlaceInCar persistencePlaceInCar = em
                 .createQuery("select p from PersistencePlaceInCar p where p.id =:id", PersistencePlaceInCar.class)
@@ -48,11 +48,34 @@ public class PersistencePartStorage {
     }
 
     @Transactional
+    public List<PersistencePartCategory> chooseOneCategory(Long id){
+        List<PersistencePartCategory> persistencePartCategoryList = new ArrayList<>();
+        PersistencePartCategory persistencePartCategory = em
+                .createQuery("select p from PersistencePartCategory p where p.id =:id", PersistencePartCategory.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        persistencePartCategoryList.add(persistencePartCategory);
+        return persistencePartCategoryList;
+    }
+
+
+    @Transactional
     public List<PersistencePart> choosePart(Long id){
         List<PersistencePart> persistencePartList = em
                 .createQuery("select p from PersistencePart p left join fetch p.partCategory t  where t.id =:id", PersistencePart.class)
                 .setParameter("id", id)
                 .getResultList();
         return persistencePartList;
+    }
+
+    @Transactional
+    public List<PersistencePart> chooseOnePart(Long id){
+        List<PersistencePart> persistenceParList = new ArrayList<>();
+        PersistencePartCategory persistencePartCategory = em
+                .createQuery("select p from PersistencePartCategory p where p.id =:id", PersistencePartCategory.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        persistencePartCategoryList.add(persistencePartCategory);
+        return persistencePartCategoryList;
     }
 }
