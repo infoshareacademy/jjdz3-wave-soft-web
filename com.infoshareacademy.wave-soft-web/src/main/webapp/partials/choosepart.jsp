@@ -7,8 +7,8 @@
 <body>
 <hr>
 <h2>Wybierz część:</h2>
-<form name="chosenpart" method="post" action="choosepart">
-    <select required name="singlecategory">
+<form name="chosenpart" method="post" action="findpart">
+    <select required name="singlepart">
         <c:forEach var="part" items="${parts}">
             <option value="${part.id}">${part.partId}</option>
         </c:forEach>
