@@ -59,6 +59,7 @@ public class FindPartServlet extends HttpServlet{
             req.setAttribute("placeInCar", this.placeInCar);
             req.setAttribute("partCategory", this.partCategory);
             req.setAttribute("parts", this.part);
+            req.setAttribute("searchPhrase", this.part.get(0).getSearchPhrase());
         }
 
 
