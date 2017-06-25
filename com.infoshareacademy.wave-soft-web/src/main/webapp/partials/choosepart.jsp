@@ -15,6 +15,9 @@
     </select>
     <button type="submit">Wybierz</button>
 </form>
-
+<hr>
+<c:if test="${not empty searchPhrase}">
+        <p>Wpisz do wyszukiwarki: <strong>${searchPhrase}</strong>.</p>
+</c:if>
 </body>
 </html>
