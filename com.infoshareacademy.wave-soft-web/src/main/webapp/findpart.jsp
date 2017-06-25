@@ -18,6 +18,7 @@
 <c:if test="${not empty parts}">
     <jsp:include page="partials/choosepart.jsp">
         <jsp:param name="parts" value="${parts}"/>
+        <jsp:param name="searchPhrase" value="${searchPhrase}"/>
     </jsp:include>
 </c:if>
 
