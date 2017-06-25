@@ -70,12 +70,12 @@ public class PersistencePartStorage {
 
     @Transactional
     public List<PersistencePart> chooseOnePart(Long id){
-        List<PersistencePart> persistenceParList = new ArrayList<>();
-        PersistencePartCategory persistencePartCategory = em
-                .createQuery("select p from PersistencePartCategory p where p.id =:id", PersistencePartCategory.class)
+        List<PersistencePart> persistencePartList = new ArrayList<>();
+        PersistencePart persistencePart = em
+                .createQuery("select p from PersistencePart p where p.id =:id", PersistencePart.class)
                 .setParameter("id", id)
                 .getSingleResult();
-        persistencePartCategoryList.add(persistencePartCategory);
-        return persistencePartCategoryList;
+        persistencePartList.add(persistencePart);
+        return persistencePartList;
     }
 }
