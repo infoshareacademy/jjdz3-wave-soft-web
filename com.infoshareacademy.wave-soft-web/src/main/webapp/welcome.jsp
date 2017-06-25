@@ -105,13 +105,6 @@
             <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Użytkownicy</h2>
-
-            <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
-        </div>
-    </div>
 
     <hr>
 
