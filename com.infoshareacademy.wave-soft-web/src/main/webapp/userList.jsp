@@ -61,7 +61,15 @@
                               <td><c:out value = "${userData.entryDate}"/></td>
                               <td><c:out value = "${userData.firstname}"/></td>
                               <td><c:out value = "${userData.lastname}"/></td>
-                              <td><c:out value = "${userData.role}"/></td>
+                              <td><c:out value = "${userData.role}"/>
+                                  <select required name="userRole" data-width="80px" class="selectpicker">
+                                          <option value="${userData.role}">Admin</option>
+                                          <option value="${userData.role}">User</option>
+                                  </select>
+                              </td>
+
+
+
                           </tr>
                       </c:forEach>
                   </table>
