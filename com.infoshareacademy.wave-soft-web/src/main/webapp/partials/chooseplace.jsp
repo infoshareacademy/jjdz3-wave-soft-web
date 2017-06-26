@@ -5,8 +5,9 @@
 
 </head>
 <body>
+<hr>
 <h2>Wybierz miejsce w samochodzie:</h2>
-<form name="chosenplace" method="post" action="filteredcategory">
+<form name="chosenplace" method="post" action="findpart">
     <select required name="singleplace">
         <c:forEach var="place" items="${placeInCar}">
             <option value="${place.id}">${place.nameOfPlace}</option>
