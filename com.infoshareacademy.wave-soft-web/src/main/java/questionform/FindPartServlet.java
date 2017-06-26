@@ -25,7 +25,6 @@ public class FindPartServlet extends HttpServlet{
     private List<PersistencePartCategory> partCategory;
     private List<PersistencePart> part;
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("placeInCar", persistencePartStorage.getAllPlaces());
@@ -61,14 +60,6 @@ public class FindPartServlet extends HttpServlet{
             req.setAttribute("parts", this.part);
             req.setAttribute("searchPhrase", this.part.get(0).getSearchPhrase());
         }
-
-
         req.getRequestDispatcher("findpart.jsp").forward(req, resp);
-
-
-        /*String placeInCar = req.getParameter("placeInCar");
-        if (placeInCar != null && !placeInCar.isEmpty()){
-
-        }*/
     }
 }
