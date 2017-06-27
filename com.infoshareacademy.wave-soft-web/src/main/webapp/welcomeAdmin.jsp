@@ -46,7 +46,7 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-6">
-            <h2>Statystyki</h2>
+            <h2>${firstStatReport}</h2>
             <p>Zobacz którą kategorię najczęściej wybierali użytkownicy</p>
             <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
         </div>
