@@ -1,11 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
 
-</head>
-<body>
-<hr>
 <h2>Wybierz miejsce w samochodzie:</h2>
 <form name="chosenplace" method="post" action="findpart">
     <select required name="singleplace">
@@ -15,5 +10,4 @@
     </select>
     <button type="submit">Wybierz</button>
 </form>
-</body>
-</html>
+
