@@ -8,9 +8,12 @@
 </head>
 <body>
 <jsp:include page="partials/view/navbar.jsp"/>
+<jsp:include page="partials/view/mycarousel.jsp"/>
+<jsp:include page="partials/view/jumbotron.jsp"/>
 
 
 <div class="container">
+    <a name="form"></a>
     <c:if test="${not empty placeInCar}">
         <jsp:include page="partials/choosingpart/chooseplace.jsp">
             <jsp:param name="placeInCar" value="${placeInCar}"/>
@@ -27,7 +30,9 @@
             <jsp:param name="searchPhrase" value="${searchPhrase}"/>
         </jsp:include>
     </c:if>
+    <jsp:include page="partials/view/navpills.jsp"/>
     <jsp:include page="partials/footer.jsp"/>
 </div> <!-- /container -->
+<script src="resources/mainjs.js"></script>
 </body>
 </html>
