@@ -87,11 +87,9 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-6">
-            <h2>Formularz</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">Więcej &raquo;</a></p>
+            <h2>Wyszukaj część na Ebay</h2>
+            <p>Pozwala odnaleźć właściwą część i wpisać odpowiednią frazę w wyszukiwarkę na Ebay.</p>
+            <p><a class="btn btn-default" href="findpart" role="button">Więcej &raquo;</a></p>
         </div>
         <div class="col-md-6">
             <h2>Kolejna funkcjonalność</h2>
