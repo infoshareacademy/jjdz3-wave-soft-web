@@ -20,4 +20,5 @@ public class UserListServlet extends HttpServlet {
         req.setAttribute("listOfusers", persistenceUserStorage.getAllUsers());
         req.getRequestDispatcher("userList.jsp").forward(req, resp);
     }
+
 }

@@ -121,6 +121,9 @@ th {
 #customH2  {
     margin-bottom: 20px!important;
 }
+td, th {
+    vertical-align: middle;!important;
+}
 
 
 

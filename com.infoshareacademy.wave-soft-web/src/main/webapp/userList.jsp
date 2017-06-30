@@ -61,11 +61,23 @@
                               <td><c:out value = "${userData.entryDate}"/></td>
                               <td><c:out value = "${userData.firstname}"/></td>
                               <td><c:out value = "${userData.lastname}"/></td>
-                              <td><c:out value = "${userData.role}"/>
-                                  <select required name="userRole" data-width="80px" class="selectpicker">
-                                          <option value="${userData.role}">Admin</option>
-                                          <option value="${userData.role}">User</option>
-                                  </select>
+                              <td><c:choose>
+                                      <c:when test="${userData.role=='1'}">Admin
+                                      </c:when>
+                                      <c:otherwise>User
+                                      </c:otherwise>
+                                  </c:choose>
+
+                                  <form action="" id="userRoleForm">
+
+                                      <select required name="userRole" data-width="80px" class="selectpicker" id="inlineFormCustomSelect" form="userRoleForm">
+                                          <option selected>Wybierz</option>
+                                          <option value="admin">Admin</option>
+                                          <option value="user">User</option>
+                                      </select>
+
+                                      <button type="submit" class="btn btn-primary">Zachowaj</button>
+                                  </form>
                               </td>
 
 
