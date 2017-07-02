@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=#form">
+    <%--<meta http-equiv="refresh" content="0; url=#form">--%>
     <jsp:include page="partials/meta.jsp"/>
     <title>Wave Soft - find a part for your car</title>
 
