@@ -15,7 +15,7 @@
 <c:if test="${not empty searchPhrase}">
     <hr>
         <p>Wpisz do wyszukiwarki: <strong>${searchPhrase}</strong>.</p>
-    <jsp:forward page="/statsReport">
-    <jsp:param name="valueForStatsReport" value="${searchPhrase}" />
-    </jsp:forward>
+    <%--<jsp:forward page="/statsReport">--%>
+    <%--<jsp:param name="valueForStatsReport" value="${searchPhrase}" />--%>
+    <%--</jsp:forward>--%>
 </c:if>
