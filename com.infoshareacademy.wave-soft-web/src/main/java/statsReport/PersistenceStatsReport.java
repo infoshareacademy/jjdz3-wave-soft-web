@@ -20,13 +20,16 @@ public class PersistenceStatsReport {
     @Column(name = "user")
     private String who;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "part")
     private PersistencePart persistencePart;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "part_category")
     private PersistencePartCategory persistencePartCategory;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "place_in_car")
     private PersistencePlaceInCar persistencePlaceInCar;
 
     public PersistenceStatsReport() {
@@ -79,4 +82,6 @@ public class PersistenceStatsReport {
     public void setPersistencePlaceInCar(PersistencePlaceInCar persistencePlaceInCar) {
         this.persistencePlaceInCar = persistencePlaceInCar;
     }
+
+
 }
