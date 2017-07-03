@@ -21,7 +21,7 @@ public class PersistencePartCategory {
     @ManyToOne
     private PersistencePlaceInCar placeInCar;
 
-    @OneToMany
+    @OneToMany(mappedBy = "persistencePartCategory")
     private PersistenceStatsReport persistenceStatsReport;
 
     public PersistencePartCategory() {

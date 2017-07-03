@@ -19,7 +19,7 @@ public class PersistencePlaceInCar {
     @OneToMany(mappedBy = "placeInCar")
     private List<PersistencePartCategory> categories = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "persistencePlaceInCar")
     private PersistenceStatsReport persistenceStatsReport;
 
     public PersistencePlaceInCar() {
