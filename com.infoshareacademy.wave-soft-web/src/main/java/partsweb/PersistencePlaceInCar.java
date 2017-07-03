@@ -1,5 +1,7 @@
 package partsweb;
 
+import statsReport.PersistenceStatsReport;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +18,9 @@ public class PersistencePlaceInCar {
 
     @OneToMany(mappedBy = "placeInCar")
     private List<PersistencePartCategory> categories = new ArrayList<>();
+
+    @OneToMany
+    private PersistenceStatsReport persistenceStatsReport;
 
     public PersistencePlaceInCar() {
     }
@@ -42,5 +47,13 @@ public class PersistencePlaceInCar {
 
     public void setCategories(List<PersistencePartCategory> categories) {
         this.categories = categories;
+    }
+
+    public PersistenceStatsReport getPersistenceStatsReport() {
+        return persistenceStatsReport;
+    }
+
+    public void setPersistenceStatsReport(PersistenceStatsReport persistenceStatsReport) {
+        this.persistenceStatsReport = persistenceStatsReport;
     }
 }
