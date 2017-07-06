@@ -4,6 +4,7 @@ import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by piotr_gy on 06.07.17.
@@ -18,6 +19,15 @@ public class PersistenceStatsReportStorage {
     @Transactional
     public void add(PersistenceStatsReport persistenceStatsReport) {
         em.persist(persistenceStatsReport);
+    }
+
+    @Transactional
+    public List<PersistenceStatsReport> getData() {
+        List<PersistenceStatsReport> data = em
+                .createQuery("select p from PersistenceStatsReport p", PersistenceStatsReport.class)
+                .getResultList();
+        return data;
+
     }
 
 }
