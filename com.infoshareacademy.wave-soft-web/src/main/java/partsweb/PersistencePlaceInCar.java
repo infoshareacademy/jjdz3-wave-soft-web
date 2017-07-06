@@ -20,7 +20,7 @@ public class PersistencePlaceInCar {
     private List<PersistencePartCategory> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "persistencePlaceInCar")
-    private PersistenceStatsReport persistenceStatsReport;
+    private List<PersistenceStatsReport> persistenceStatsReport = new ArrayList<>();
 
     public PersistencePlaceInCar() {
     }
@@ -49,11 +49,11 @@ public class PersistencePlaceInCar {
         this.categories = categories;
     }
 
-    public PersistenceStatsReport getPersistenceStatsReport() {
+    public List<PersistenceStatsReport> getPersistenceStatsReport() {
         return persistenceStatsReport;
     }
 
-    public void setPersistenceStatsReport(PersistenceStatsReport persistenceStatsReport) {
+    public void setPersistenceStatsReport(List<PersistenceStatsReport> persistenceStatsReport) {
         this.persistenceStatsReport = persistenceStatsReport;
     }
 }
