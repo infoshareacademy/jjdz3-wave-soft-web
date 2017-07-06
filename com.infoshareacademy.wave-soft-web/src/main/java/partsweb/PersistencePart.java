@@ -3,6 +3,8 @@ package partsweb;
 import statsReport.PersistenceStatsReport;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class PersistencePart {
@@ -17,7 +19,7 @@ public class PersistencePart {
     private PersistencePartCategory partCategory;
 
     @OneToMany(mappedBy = "persistencePart")
-    private PersistenceStatsReport persistenceStatsReport;
+    private List<PersistenceStatsReport> persistenceStatsReport = new ArrayList<>();
 
     public PersistencePart() {
     }
@@ -46,11 +48,11 @@ public class PersistencePart {
         this.searchPhrase = searchPhrase;
     }
 
-    public PersistenceStatsReport getPersistenceStatsReport() {
+    public List<PersistenceStatsReport> getPersistenceStatsReport() {
         return persistenceStatsReport;
     }
 
-    public void setPersistenceStatsReport(PersistenceStatsReport persistenceStatsReport) {
+    public void setPersistenceStatsReport(List<PersistenceStatsReport> persistenceStatsReport) {
         this.persistenceStatsReport = persistenceStatsReport;
     }
 }
