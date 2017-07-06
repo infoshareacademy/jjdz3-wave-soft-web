@@ -104,6 +104,27 @@ a.navbar-brand:hover #cog  {
         transform:rotate(360deg);
     }
 }
+tr:nth-child(even) {
+    background: #CCC
+}
+tr:nth-child(odd) {
+    background: #FFF
+}
+th {
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+    color: #fff;
+}
+#customJumbotron  {
+    margin-bottom: 0px!important;
+    padding-bottom: 24px;
+}
+#customH2  {
+    margin-bottom: 20px!important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle!important;
+    vertical-align: middle;
+}
 
 
 

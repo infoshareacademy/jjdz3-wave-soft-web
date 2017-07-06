@@ -1,7 +1,10 @@
-/*
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,7 +14,6 @@ public class UsersList implements Serializable {
 
     @Id
     @GeneratedValue
-    @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
 
     @Temporal(TemporalType.DATE)
@@ -82,4 +84,3 @@ public class UsersList implements Serializable {
     }
 }
 
-*/

@@ -1,4 +1,3 @@
-/*
 public class GoogleUser {
 
     private String given_name;
@@ -22,4 +21,3 @@ public class GoogleUser {
         return email;
     }
 }
-*/
