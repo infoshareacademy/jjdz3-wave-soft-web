@@ -61,9 +61,9 @@
                         <td><c:out value = "${report.categoryId}"/></td>
                         <td><c:out value = "${report.date}"/></td>
                         <td><c:out value = "${report.who}"/></td>
-                        <td><c:out value = "${report.persistencePart}"/></td>
-                        <td><c:out value = "${report.persistencePartCategory}"/></td>
-                        <td><c:out value = "${report.persistencePlaceInCar}"/></td>
+                        <td><c:out value = "${report.persistencePart.id}"/></td>
+                        <td><c:out value = "${report.persistencePartCategory.id}"/></td>
+                        <td><c:out value = "${report.persistencePlaceInCar.id}"/></td>
                     </tr>
                 </c:forEach>
             </table>
