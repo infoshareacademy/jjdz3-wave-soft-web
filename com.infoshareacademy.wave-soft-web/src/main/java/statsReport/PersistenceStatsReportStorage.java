@@ -23,11 +23,11 @@ public class PersistenceStatsReportStorage {
 
     @Transactional
     public List<PersistenceStatsReport> getData() {
+        String getDataQueryString = "select p from PersistenceStatsReport p";
         List<PersistenceStatsReport> data = em
-                .createQuery("select p from PersistenceStatsReport p", PersistenceStatsReport.class)
+                .createQuery(getDataQueryString, PersistenceStatsReport.class)
                 .getResultList();
         return data;
 
     }
-
 }
