@@ -7,6 +7,8 @@ import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
 import statsReport.PersistenceStatsReport;
 import statsReport.PersistenceStatsReportStorage;
+import usersList.PersistenceUserStorage;
+import usersList.UsersList;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -32,6 +34,8 @@ public class FindPartServlet extends HttpServlet{
     @Default
     private PersistenceStatsReportStorage persistenceStatsReportStorage;
     private PersistenceStatsReport persistenceStatsReport;
+    private UsersList usersList;
+    private PersistenceUserStorage persistenceUserStorage;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -82,10 +86,12 @@ public class FindPartServlet extends HttpServlet{
             req.setAttribute("parts", this.part);
             req.setAttribute("searchPhrase", this.part.get(0).getSearchPhrase());
 
+            UsersList usersList = new UsersList();
+            usersList.getEmail();
             //dodawanie pozostałych danych do obiektu raportu (tutaj są zahardkodowane)
             persistenceStatsReport.setDate(5l);
-            persistenceStatsReport.setWho("SomeUser");
-
+//            persistenceStatsReport.setWho("SomeUser");
+            persistenceStatsReport.setUsersList(usersList);
             //zapis raportu (1 wiersza) do tabeli
             persistenceStatsReportStorage.add(persistenceStatsReport);
         }

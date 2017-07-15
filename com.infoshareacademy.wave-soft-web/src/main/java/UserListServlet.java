@@ -1,3 +1,5 @@
+import usersList.PersistenceUserStorage;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.servlet.ServletException;

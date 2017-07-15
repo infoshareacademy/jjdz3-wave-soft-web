@@ -1,12 +1,12 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+package usersList;
+
+import statsReport.PersistenceStatsReport;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "serviceusers")
@@ -31,6 +31,9 @@ public class UsersList implements Serializable {
 
     @Column(name = "role", length = 1)
     private Integer role;
+
+    @OneToMany(mappedBy ="usersList" )
+    private List<PersistenceStatsReport> persistenceStatsReport = new ArrayList<>();
 
     public UsersList() {
     }
@@ -81,6 +84,14 @@ public class UsersList implements Serializable {
 
     public void setRole(Integer role) {
         this.role = role;
+    }
+
+    public List<PersistenceStatsReport> getPersistenceStatsReport() {
+        return persistenceStatsReport;
+    }
+
+    public void setPersistenceStatsReport(List<PersistenceStatsReport> persistenceStatsReport) {
+        this.persistenceStatsReport = persistenceStatsReport;
     }
 }
 
