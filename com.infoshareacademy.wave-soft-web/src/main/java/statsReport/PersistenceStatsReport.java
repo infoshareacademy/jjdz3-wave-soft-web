@@ -3,7 +3,6 @@ package statsReport;
 import partsweb.PersistencePart;
 import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
-import usersList.UsersList;
 
 import javax.persistence.*;
 
@@ -18,12 +17,12 @@ public class PersistenceStatsReport {
     @Column(name = "data")
     private Long date;
 
-//    @Column(name = "user")
-//    private String who;
+    @Column(name = "user")
+    private String who;
 
-    @ManyToOne
-    @JoinColumn(name = "user")
-    private UsersList usersList;
+//    @ManyToOne
+//    @JoinColumn(name = "user")
+//    private UsersList usersList;
 
     @ManyToOne
     @JoinColumn(name = "part")
@@ -56,13 +55,13 @@ public class PersistenceStatsReport {
         this.date = date;
     }
 
-//    public String getWho() {
-//        return who;
-//    }
-//
-//    public void setWho(String who) {
-//        this.who = who;
-//    }
+    public String getWho() {
+        return who;
+    }
+
+    public void setWho(String who) {
+        this.who = who;
+    }
 
     public PersistencePart getPersistencePart() {
         return persistencePart;
@@ -88,12 +87,12 @@ public class PersistenceStatsReport {
         this.persistencePlaceInCar = persistencePlaceInCar;
     }
 
-    public UsersList getUsersList() {
-        return usersList;
-    }
-
-    public void setUsersList(UsersList usersList) {
-        this.usersList = usersList;
-    }
+//    public UsersList getUsersList() {
+//        return usersList;
+//    }
+//
+//    public void setUsersList(UsersList usersList) {
+//        this.usersList = usersList;
+//    }
 
 }

@@ -7,8 +7,8 @@ import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
 import statsReport.PersistenceStatsReport;
 import statsReport.PersistenceStatsReportStorage;
-import usersList.PersistenceUserStorage;
-import usersList.UsersList;
+import usersList.GoogleUser;
+import usersList.SessionData;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -34,8 +35,6 @@ public class FindPartServlet extends HttpServlet{
     @Default
     private PersistenceStatsReportStorage persistenceStatsReportStorage;
     private PersistenceStatsReport persistenceStatsReport;
-    private UsersList usersList;
-    private PersistenceUserStorage persistenceUserStorage;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -86,15 +85,28 @@ public class FindPartServlet extends HttpServlet{
             req.setAttribute("parts", this.part);
             req.setAttribute("searchPhrase", this.part.get(0).getSearchPhrase());
 
-            UsersList usersList = new UsersList();
-            usersList.getEmail();
+//            UsersList usersList = new UsersList();
+//            usersList.getEmail();
             //dodawanie pozostałych danych do obiektu raportu (tutaj są zahardkodowane)
             persistenceStatsReport.setDate(5l);
 //            persistenceStatsReport.setWho("SomeUser");
-            persistenceStatsReport.setUsersList(usersList);
+
+
+//            persistenceStatsReport.setWho(userEmail);
+
+
             //zapis raportu (1 wiersza) do tabeli
             persistenceStatsReportStorage.add(persistenceStatsReport);
         }
+        GoogleUser googleUser = new GoogleUser();
+        SessionData sessionData = new SessionData();
+//        String emailSessionData = googleUser.getEmail();
+        String emailSessionData = sessionData.getEmail();
+        HttpSession httpSession = req.getSession();
+        httpSession.setAttribute("emailFromHttpSession", emailSessionData);
+        String userEmail = (String) httpSession.getAttribute("emailFromHttpSession");
+        req.setAttribute("userEmailToServletFromHttpSession", userEmail);
+
         req.getRequestDispatcher("findpart.jsp").forward(req, resp);
     }
 }
