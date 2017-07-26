@@ -62,13 +62,13 @@
                               <td><c:out value = "${userData.firstname}"/></td>
                               <td><c:out value = "${userData.lastname}"/></td>
                               <td><c:choose>
-                                      <c:when test="${userData.role=='1'}">Admin
+                                  <c:when test="${userData.role=='1'}"><p>Admin</p>
                                       </c:when>
-                                      <c:otherwise>User
+                                      <c:otherwise><p>User</p>
                                       </c:otherwise>
                                   </c:choose>
 
-                                  <form action="" id="userRoleForm">
+                                  <form action="post" id="userRoleForm">
 
                                       <select required name="userRole" data-width="80px" class="selectpicker" id="inlineFormCustomSelect" form="userRoleForm">
                                           <option selected>Wybierz</option>
@@ -76,7 +76,7 @@
                                           <option value="user">User</option>
                                       </select>
 
-                                      <button type="submit" class="btn btn-primary">Zachowaj</button>
+
                                   </form>
                               </td>
 
@@ -85,7 +85,7 @@
                           </tr>
                       </c:forEach>
                   </table>
-
+                    <button type="submit" class="btn btn-primary" form="userRoleForm">Zachowaj</button>
                 </div>
             </div>
             <hr>
