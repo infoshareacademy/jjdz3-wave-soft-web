@@ -69,13 +69,20 @@
                                   </c:choose>
 
                                   <form action="post" id="userRoleForm">
-
+<%--
                                       <select required name="userRole" data-width="80px" class="selectpicker" id="inlineFormCustomSelect" form="userRoleForm">
                                           <option selected>Wybierz</option>
                                           <option value="admin">Admin</option>
                                           <option value="user">User</option>
-                                      </select>
+                                      </select>--%>
 
+                                      <select required name="userRole" data-width="80px" class="selectpicker" id="inlineFormCustomSelect" form="userRoleForm">
+
+                                          <c:forEach var="userData" items="${listOfusers}">
+                                              <option value="${userData.role=='1'}">Admin</option>
+                                              <option value="${userData.role=='2'}">User</option>
+                                          </c:forEach>
+                                      </select>
 
                                   </form>
                               </td>
