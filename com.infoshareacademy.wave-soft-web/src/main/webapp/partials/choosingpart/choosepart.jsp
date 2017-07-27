@@ -14,5 +14,11 @@
 
 <c:if test="${not empty searchPhrase}">
     <hr>
-        <p>Wpisz do wyszukiwarki: <strong>${searchPhrase}</strong>.</p>
+    <form name="apisearch" method="get" action="ebaysearch">
+        <p>Wpisz do wyszukiwarki:<input name="searchPhrase" type="text"value="${searchPhrase}" readonly="readonly"/>
+            <button type="submit">Wyszukaj</button>
+        </p>
+    </form>
+
+    <%--<p>Wpisz do wyszukiwarki: <strong>${searchPhrase}</strong>.</p>--%>
 </c:if>
