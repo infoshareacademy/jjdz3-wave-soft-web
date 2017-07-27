@@ -9,7 +9,9 @@ import java.util.List;
 
 @Default
 public class EbayClient {
-    private static final String APP_ID = "WaveSoftAutparts";
+    private static final String APP_ID = "PiotrGrn-WaveSoft-PRD-b8dfd86bc-143b122e";
+    private static final String ENDPOINT = "https://svcs.ebay.com/services/search/FindingService/v1";
+
     private FindingServicePortType serviceClient;
     private List<SearchItem> resultList;
 
@@ -17,6 +19,7 @@ public class EbayClient {
 
         try {
             ClientConfig config = new ClientConfig();
+            config.setEndPointAddress(ENDPOINT);
             config.setApplicationId(APP_ID);
 
             this.serviceClient = FindingServiceClientFactory.getServiceClient(config);
@@ -30,14 +33,14 @@ public class EbayClient {
         final int ENTRIES_PER_PAGE = 10;
 
         try {
-            FindItemsByKeywordsRequest request = new FindItemsByKeywordsRequest();
+            FindItemsAdvancedRequest request = new FindItemsAdvancedRequest();
             request.setKeywords(searchPhrase);
 
             PaginationInput pi = new PaginationInput();
             pi.setEntriesPerPage(ENTRIES_PER_PAGE);
             request.setPaginationInput(pi);
 
-            FindItemsByKeywordsResponse result = this.serviceClient.findItemsByKeywords(request);
+            FindItemsAdvancedResponse result = this.serviceClient.findItemsAdvanced(request);
             this.resultList = result.getSearchResult().getItem();
         } catch (Exception e) {
             System.out.println("Can't call an eBay API.");
@@ -48,5 +51,13 @@ public class EbayClient {
 
     public List<SearchItem> getResultList() {
         return resultList;
+    }
+
+    public static String getAppId() {
+        return APP_ID;
+    }
+
+    public static String getEndPoint() {
+        return ENDPOINT;
     }
 }
