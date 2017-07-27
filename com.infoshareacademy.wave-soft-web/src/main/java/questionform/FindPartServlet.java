@@ -93,7 +93,7 @@ public class FindPartServlet extends HttpServlet{
 //            LocalDateTime localDateTime = LocalDateTime.now();
 //            persistenceStatsReport.setDate(localDateTime);
 
-            persistenceStatsReportStorage.addDate(persistenceStatsReport);
+            persistenceStatsReportStorage.addCalendar(persistenceStatsReport);
 
 //            persistenceStatsReport.setWho("SomeUser");
 
