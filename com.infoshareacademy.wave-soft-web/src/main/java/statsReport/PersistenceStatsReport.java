@@ -5,6 +5,7 @@ import partsweb.PersistencePartCategory;
 import partsweb.PersistencePlaceInCar;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="CATEGORY_REPORT")
@@ -14,8 +15,13 @@ public class PersistenceStatsReport {
     @GeneratedValue
     private Long categoryId;
 
-    @Column(name = "data")
-    private Long date;
+//    @Column(name = "data" /*,nullable = false, columnDefinition="TIMESTAMP"*/)
+//    @Convert(converter = LocalDateTimeConverter.class)
+//    private LocalDateTime date;
+
+    @Column(name = "newData")
+    @Temporal(TemporalType.TIME)
+    private Date newDate;
 
     @Column(name = "user")
     private String who;
@@ -45,14 +51,6 @@ public class PersistenceStatsReport {
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
-    }
-
-    public Long getDate() {
-        return date;
-    }
-
-    public void setDate(Long date) {
-        this.date = date;
     }
 
     public String getWho() {
@@ -86,6 +84,23 @@ public class PersistenceStatsReport {
     public void setPersistencePlaceInCar(PersistencePlaceInCar persistencePlaceInCar) {
         this.persistencePlaceInCar = persistencePlaceInCar;
     }
+
+//    public LocalDateTime getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(LocalDateTime date) {
+//        this.date = date;
+//    }
+
+    public Date getNewDate() {
+        return newDate;
+    }
+
+    public void setNewDate(Date newDate) {
+        this.newDate = newDate;
+    }
+
 
 //    public UsersList getUsersList() {
 //        return usersList;

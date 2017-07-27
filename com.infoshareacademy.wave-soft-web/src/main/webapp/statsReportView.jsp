@@ -59,7 +59,7 @@
                 <c:forEach var = "report" items = "${reportTable}">
                     <tr>
                         <td><c:out value = "${report.categoryId}"/></td>
-                        <td><c:out value = "${report.date}"/></td>
+                        <td><c:out value = "${report.newDate}"/></td>
                         <td><c:out value = "${report.who}"/></td>
                         <td><c:out value = "${report.persistencePart.id}"/></td>
                         <td><c:out value = "${report.persistencePartCategory.id}"/></td>

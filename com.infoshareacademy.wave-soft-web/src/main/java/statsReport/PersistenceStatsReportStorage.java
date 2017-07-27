@@ -4,6 +4,8 @@ import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +20,13 @@ public class PersistenceStatsReportStorage {
     //dodaje tylko gotowy raport (1 wiersz) do tabeli
     @Transactional
     public void add(PersistenceStatsReport persistenceStatsReport) {
+        em.persist(persistenceStatsReport);
+    }
+
+    @Transactional
+    public void addDate(PersistenceStatsReport persistenceStatsReport) {
+        Date nowDate = new Date();
+        persistenceStatsReport.setNewDate(nowDate);
         em.persist(persistenceStatsReport);
     }
 
