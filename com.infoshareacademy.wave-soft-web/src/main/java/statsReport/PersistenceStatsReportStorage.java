@@ -4,9 +4,9 @@ import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * Created by piotr_gy on 06.07.17.
@@ -23,10 +23,19 @@ public class PersistenceStatsReportStorage {
         em.persist(persistenceStatsReport);
     }
 
+//    @Transactional
+//    public void addDate(PersistenceStatsReport persistenceStatsReport) {
+//        Date nowDate = new Date();
+//        persistenceStatsReport.setNewDate(nowDate);
+//        em.persist(persistenceStatsReport);
+//    }
+
     @Transactional
-    public void addDate(PersistenceStatsReport persistenceStatsReport) {
-        Date nowDate = new Date();
-        persistenceStatsReport.setNewDate(nowDate);
+    public void addCalendar(PersistenceStatsReport persistenceStatsReport) {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        Calendar nowDate = Calendar.getInstance(timeZone);
+        nowDate.get(Calendar.DATE);
+        persistenceStatsReport.setCalendar(nowDate);
         em.persist(persistenceStatsReport);
     }
 
