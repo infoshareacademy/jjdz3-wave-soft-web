@@ -30,14 +30,14 @@ public class PersistenceStatsReportStorage {
 //        em.persist(persistenceStatsReport);
 //    }
 
-    @Transactional
-    public void addCalendar(PersistenceStatsReport persistenceStatsReport) {
-        TimeZone timeZone = TimeZone.getTimeZone("UTC");
-        Calendar nowDate = Calendar.getInstance(timeZone);
-        nowDate.get(Calendar.DATE);
-        persistenceStatsReport.setCalendar(nowDate);
-        em.persist(persistenceStatsReport);
-    }
+//    @Transactional
+//    public void addCalendar(PersistenceStatsReport persistenceStatsReport) {
+//        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+//        Calendar nowDate = Calendar.getInstance(timeZone);
+//        nowDate.get(Calendar.DATE);
+//        persistenceStatsReport.setCalendar(nowDate);
+//        em.persist(persistenceStatsReport);
+//    }
 
     @Transactional
     public List<PersistenceStatsReport> getData() {

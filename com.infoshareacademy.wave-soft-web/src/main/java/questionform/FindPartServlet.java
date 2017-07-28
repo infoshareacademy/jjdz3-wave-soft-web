@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 @WebServlet("/findpart")
 public class FindPartServlet extends HttpServlet{
@@ -83,45 +85,16 @@ public class FindPartServlet extends HttpServlet{
             req.setAttribute("parts", this.part);
             req.setAttribute("searchPhrase", this.part.get(0).getSearchPhrase());
 
-//            UsersList usersList = new UsersList();
-//            usersList.getEmail();
-            //dodawanie pozostałych danych do obiektu raportu (tutaj są zahardkodowane)
+            persistenceStatsReport.setWho("User");
 
-//            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-//            persistenceStatsReport.setDate(gregorianCalendar);
-
-//            LocalDateTime localDateTime = LocalDateTime.now();
-//            persistenceStatsReport.setDate(localDateTime);
-
-            persistenceStatsReportStorage.addCalendar(persistenceStatsReport);
-
-//            persistenceStatsReport.setWho("SomeUser");
-
-
-//            persistenceStatsReport.setWho(userEmail);
-
+            TimeZone timeZone = TimeZone.getTimeZone("UTC");
+            Calendar nowDate = Calendar.getInstance(timeZone);
+            nowDate.get(Calendar.DATE);
+            persistenceStatsReport.setCalendar(nowDate);
 
             //zapis raportu (1 wiersza) do tabeli
             persistenceStatsReportStorage.add(persistenceStatsReport);
         }
-        /*
-//        GoogleUser googleUser = new GoogleUser();
-//        SessionData sessionData = new SessionData();
-//
-//        String emailSessionData = sessionData.getEmail();
-        HttpSession httpSession = req.getSession();
-
-      String sessionDataEmail = sessionData.getEmail();
-      httpSession.setAttribute("emailK", sessionDataEmail);
-//      req.setAttribute("sessionEmail", sessionDataEmail);
-
-//        String emailSessionData = googleUser.getEmail();
-//        httpSession.setAttribute("emailFromHttpSession", emailSessionData);
-        String userEmail = (String) httpSession.getAttribute("emailK");
-        req.setAttribute("userEmailToServletFromHttpSession", userEmail);*/
-
-        String userEmail;
-
         req.getRequestDispatcher("findpart.jsp").forward(req, resp);
     }
 }
