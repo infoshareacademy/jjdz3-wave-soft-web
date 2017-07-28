@@ -49,7 +49,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Date</th>
-                    <th>User</th>
+                    <th>Role</th>
                     <th>Part ID</th>
                     <th>Part Category ID</th>
                     <th>Place In Car ID</th>

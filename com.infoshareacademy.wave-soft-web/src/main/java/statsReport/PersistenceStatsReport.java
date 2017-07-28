@@ -15,14 +15,10 @@ public class PersistenceStatsReport {
     @GeneratedValue
     private Long categoryId;
 
-//    @Column(name = "newData")
-//    @Temporal(TemporalType.TIME)
-//    private Date newDate;
-
     @Column(name = "Calendar")
     private Calendar calendar;
 
-    @Column(name = "user")
+    @Column(name = "Role")
     private String who;
 
 //    @ManyToOne
@@ -83,14 +79,6 @@ public class PersistenceStatsReport {
     public void setPersistencePlaceInCar(PersistencePlaceInCar persistencePlaceInCar) {
         this.persistencePlaceInCar = persistencePlaceInCar;
     }
-
-//    public Date getNewDate() {
-//        return newDate;
-//    }
-//
-//    public void setNewDate(Date newDate) {
-//        this.newDate = newDate;
-//    }
 
     public Calendar getCalendar() {
         return calendar;
