@@ -33,7 +33,7 @@
 </nav>
 <div class="jumbotron" id="customJumbotron">
     <div class="container">
-        <h1 class="mainHeader">Witaj, administratorze!</h1>
+        <h1 class="mainHeader">Statystyki</h1>
         <p>Statystyki dotyczące wypełniania formularza przez użytkowników</p>
     </div>
 </div>

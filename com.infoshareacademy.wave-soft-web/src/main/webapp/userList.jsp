@@ -31,7 +31,7 @@
 </nav>
 <div class="jumbotron" id="customJumbotron">
     <div class="container">
-        <h1 class="mainHeader">Witaj, administratorze!</h1>
+        <h1 class="mainHeader">Panel uprawnień</h1>
         <p>Za pomocą tego panelu możesz nadać lub zabrać uprawnienia administratora użytkownikom.</p>
     </div>
 </div>
