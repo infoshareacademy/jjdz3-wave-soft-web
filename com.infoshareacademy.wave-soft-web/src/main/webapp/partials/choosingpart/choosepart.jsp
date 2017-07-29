@@ -14,7 +14,7 @@
 
 <c:if test="${not empty searchPhrase}">
     <hr>
-    <form name="apisearch" method="get" action="ebaysearch">
+    <form name="apisearch" method="post" action="ebaysearch">
         <p>Wpisz do wyszukiwarki:<input name="searchPhrase" type="text"value="${searchPhrase}" readonly="readonly"/>
             <button type="submit">Wyszukaj</button>
         </p>
