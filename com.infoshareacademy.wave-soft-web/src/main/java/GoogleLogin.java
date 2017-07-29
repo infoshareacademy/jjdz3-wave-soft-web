@@ -6,9 +6,9 @@ import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 import com.google.gson.Gson;
-import validator.MyConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import validator.MyConstants;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
