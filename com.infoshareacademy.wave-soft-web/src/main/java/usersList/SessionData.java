@@ -1,3 +1,5 @@
+package usersList;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -65,7 +67,7 @@ public class SessionData implements Serializable {
 
     @Override
     public String toString() {
-        return "SessionData{" +
+        return "usersList.SessionData{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", picture='" + picture + '\'' +

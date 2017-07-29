@@ -1,3 +1,5 @@
+package usersList;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ public class UserListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("listOfusers", persistenceUserStorage.getAllUsers());
+//        req.setAttribute("listOfusers", persistenceUserStorage.getAllUsers());
         req.getRequestDispatcher("userList.jsp").forward(req, resp);
     }
 

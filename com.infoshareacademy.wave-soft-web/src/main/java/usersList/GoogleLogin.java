@@ -1,3 +1,5 @@
+package usersList;
+
 import com.github.scribejava.apis.GoogleApi20;
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.model.OAuth2AccessToken;
@@ -6,8 +8,8 @@ import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
 import com.google.gson.Gson;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import validator.MyConstants;
 
 import javax.inject.Inject;
@@ -30,7 +32,7 @@ public class GoogleLogin extends HttpServlet {
     @Inject
     SessionData sessionData;
 
-    private final Logger LOGGER = LogManager.getLogger(GoogleLogin.class);
+//    private final Logger LOGGER = LogManager.getLogger(GoogleLogin.class);
 
     private static final String PROTECTED_RESOURCE_URL = "https://www.googleapis.com/oauth2/v2/userinfo";
 
@@ -100,7 +102,7 @@ public class GoogleLogin extends HttpServlet {
                 UsersList member = entityManager.createQuery("SELECT m FROM  UsersList m WHERE m.email = :email ORDER BY m.email", UsersList.class)
                         .setParameter("email", googleUser.getEmail()).getSingleResult();
 
-                LOGGER.debug("Lista użytkowników: " + member.getFirstname());
+//                LOGGER.debug("Lista użytkowników: " + member.getFirstname());
 
 //                if (administratorEmails.isAdministrator(googleUser.getEmail()) == 1) {
                 if (!member.getEmail().isEmpty()) {

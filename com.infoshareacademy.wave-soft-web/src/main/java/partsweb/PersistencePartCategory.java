@@ -1,6 +1,8 @@
 package partsweb;
 
 
+import statsReport.PersistenceStatsReport;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,9 @@ public class PersistencePartCategory {
 
     @ManyToOne
     private PersistencePlaceInCar placeInCar;
+
+    @OneToMany(mappedBy = "persistencePartCategory")
+    private List<PersistenceStatsReport> persistenceStatsReport = new ArrayList<>();
 
     public PersistencePartCategory() {
     }
@@ -44,5 +49,13 @@ public class PersistencePartCategory {
 
     public void setParts(List<PersistencePart> parts) {
         this.parts = parts;
+    }
+
+    public List<PersistenceStatsReport> getPersistenceStatsReport() {
+        return persistenceStatsReport;
+    }
+
+    public void setPersistenceStatsReport(List<PersistenceStatsReport> persistenceStatsReport) {
+        this.persistenceStatsReport = persistenceStatsReport;
     }
 }

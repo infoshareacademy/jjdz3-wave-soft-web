@@ -1,9 +1,10 @@
 package partsweb;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import statsReport.PersistenceStatsReport;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class PersistencePart {
@@ -16,6 +17,9 @@ public class PersistencePart {
 
     @ManyToOne
     private PersistencePartCategory partCategory;
+
+    @OneToMany(mappedBy = "persistencePart")
+    private List<PersistenceStatsReport> persistenceStatsReport = new ArrayList<>();
 
     public PersistencePart() {
     }
@@ -42,5 +46,13 @@ public class PersistencePart {
 
     public void setSearchPhrase(String searchPhrase) {
         this.searchPhrase = searchPhrase;
+    }
+
+    public List<PersistenceStatsReport> getPersistenceStatsReport() {
+        return persistenceStatsReport;
+    }
+
+    public void setPersistenceStatsReport(List<PersistenceStatsReport> persistenceStatsReport) {
+        this.persistenceStatsReport = persistenceStatsReport;
     }
 }

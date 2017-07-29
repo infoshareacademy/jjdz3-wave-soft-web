@@ -1,3 +1,5 @@
+package usersList;
+
 public class GoogleUser {
 
     private String given_name;
